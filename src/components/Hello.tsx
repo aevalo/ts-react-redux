@@ -7,8 +7,6 @@ export interface HelloProps { compiler: string; framework: string; }
 // State is never set so we use the 'undefined' type.
 export class Hello extends React.Component<HelloProps, undefined> {
     render() {
-        return <h1>Hello from&nbsp;
-          <span className='compiler'>{this.props.compiler}</span> and&nbsp;
-          <span className='framework'>{this.props.framework}</span>!</h1>;
+        return <h1>Hello from <span className='compiler'>{this.props.compiler}</span> and <span className='framework'>{this.props.framework}</span>!</h1>;
     }
 }
