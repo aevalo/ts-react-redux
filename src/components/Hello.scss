@@ -1,0 +1,11 @@
+h1 {
+  span {
+    text-decoration: underline;
+    &.compiler {
+      color: red;
+    }
+    &.framework {
+      color: blue;
+    }
+  }
+}

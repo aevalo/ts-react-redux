@@ -12,7 +12,7 @@ module.exports = {
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx", ".js", ".json"]
+        extensions: [".ts", ".tsx", ".js", ".json", '.scss']
     },
 
     module: {
@@ -24,14 +24,12 @@ module.exports = {
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
 
             // Compile SASS files
-            { test: /\.scss$/, ExtractTextPlugin.extract('css!sass') }
+            { test: /\.scss$/, loader: ExtractTextPlugin.extract('css-loader!sass-loader') }
         ]
     },
-     plugins: [
-         new ExtractTextPlugin('public/style.css', {
-             allChunks: true
-         })
-     ],
+    plugins: [
+        new ExtractTextPlugin({filename: 'bundle.css', allChunks: true})
+    ],
 
     // When importing a module whose path matches one of the following, just
     // assume a corresponding global variable exists and use that instead.
